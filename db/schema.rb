@@ -66,9 +66,10 @@ ActiveRecord::Schema.define(:version => 20120629221529) do
     t.string   "address"
     t.string   "name"
     t.integer  "host_id"
-    t.integer  "host_type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "host_type"
+    t.integer  "bonded_interface_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "networks", :force => true do |t|

@@ -21,7 +21,8 @@ class CreateNetworks < ActiveRecord::Migration
       t.string :address
       t.string :name
       t.integer :host_id
-      t.integer :host_type
+      t.string :host_type
+      t.integer :bonded_interface_id
 
       t.timestamps
     end
