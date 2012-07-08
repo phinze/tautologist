@@ -1,17 +1,18 @@
 ActiveAdmin::Dashboards.build do
 
-  # Define your dashboard sections here. Each block will be
-  # rendered on the dashboard in the context of the view. So just
-  # return the content which you would like to display.
-  
-  section "Recent Nodes" do
-    ul do
-      Node.all.collect do |node|
-        li link_to(node.title, admin_node_path(node))
+  if Location.table_exists?
+    Location.all.each do |location|
+      section location.title do
+        para location.description
+        h4 "Nodes"
+        ul do
+          location.nodes.map do |node|
+            li link_to(node.title, admin_node_path(node))
+          end
+        end
       end
     end
   end
-
   
   # == Simple Dashboard Section
   # Here is an example of a simple dashboard section
